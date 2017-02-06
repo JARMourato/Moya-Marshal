@@ -1,0 +1,22 @@
+[
+ {
+ "user": "peter",
+ "age": "25"
+ },
+ {
+ "user": "john",
+ "age": "22"
+ },
+ {
+ "user": "joey",
+ "age": "30"
+ },
+ {
+ "user": "mathew",
+ "age": "20"
+ },
+ {
+ "user": "william",
+ "age": "17"
+ }
+]

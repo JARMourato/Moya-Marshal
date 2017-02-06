@@ -38,11 +38,11 @@ extension SignalProducerProtocol where Value == Moya.Response, Error == MoyaErro
         }
     }
     
-    /// Maps data received from the signal into an array of objects which implement the ALSwiftyJSONAble protocol.
+    /// Maps data received from the signal into an array of objects which implement the Unmarshaling protocol.
     /// If the conversion fails, the signal errors.
-    public func map<T: Unmarshaling>(_ type: T.Type) -> SignalProducer<[T], MoyaError> {
+    public func map<T: Unmarshaling>(of type: T.Type) -> SignalProducer<[T], MoyaError> {
         return producer.flatMap(.latest) { response -> SignalProducer<[T], Moya.Error> in
-            return unwrapThrowable { try response.mapArray(type) }
+            return unwrapThrowable { try response.mapArray(of: type) }
         }
     }
 }

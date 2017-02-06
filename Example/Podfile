@@ -1,0 +1,14 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+platform :ios, '9.0'
+
+def shared_pods
+    pod 'Moya-Marshal', :path => '../'
+    pod 'Moya-Marshal/RxSwift', :path => '../'
+    pod 'Moya-Marshal/ReactiveCocoa', :path => '../'
+end
+
+target 'Example' do
+    shared_pods
+end

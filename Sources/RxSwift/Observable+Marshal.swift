@@ -33,7 +33,7 @@ public extension ObservableType where E == Response {
     /// Maps data received from the signal into an object
     /// which implements the Unmarshaling protocol and returns the result back
     /// If the conversion fails, the signal errors.
-    public func map<T: Unmarshaling>(to type: T.Type) throws -> Observable<T> {
+    public func map<T: Unmarshaling>(to type: T.Type) -> Observable<T> {
         return flatMap { response -> Observable<T> in
             return Observable.just(try response.map(to: T.self))
         }
@@ -42,9 +42,9 @@ public extension ObservableType where E == Response {
     /// Maps data received from the signal into an array of objects
     /// which implement the Unmarshaling protocol and returns the result back
     /// If the conversion fails, the signal errors.
-    public func mapArray<T: Unmarshaling>(to type: T.Type) throws -> Observable<[T]> {
+    public func mapArray<T: Unmarshaling>(of type: T.Type) -> Observable<[T]> {
         return flatMap { response -> Observable<[T]> in
-            return Observable.just(try response.mapArray(T.self))
+            return Observable.just(try response.mapArray(of: T.self))
         }
 
     }
