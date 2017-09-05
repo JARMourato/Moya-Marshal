@@ -33,7 +33,7 @@ extension SignalProducerProtocol where Value == Moya.Response, Error == MoyaErro
     /// Maps data received from the signal into an object which implements the Unmarshaling protocol.
     /// If the conversion fails, the signal errors.
     public func map<T: Unmarshaling>(to type: T.Type) -> SignalProducer<T, MoyaError> {
-        return producer.flatMap(.latest) { response -> SignalProducer<T, Moya.Error> in
+        return producer.flatMap(.latest) { response -> SignalProducer<T, MoyaError> in
             return unwrapThrowable { try response.map(to: type) }
         }
     }
@@ -41,7 +41,7 @@ extension SignalProducerProtocol where Value == Moya.Response, Error == MoyaErro
     /// Maps data received from the signal into an array of objects which implement the Unmarshaling protocol.
     /// If the conversion fails, the signal errors.
     public func map<T: Unmarshaling>(of type: T.Type) -> SignalProducer<[T], MoyaError> {
-        return producer.flatMap(.latest) { response -> SignalProducer<[T], Moya.Error> in
+        return producer.flatMap(.latest) { response -> SignalProducer<[T], MoyaError> in
             return unwrapThrowable { try response.mapArray(of: type) }
         }
     }

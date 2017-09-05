@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.description  = <<-EOS
   [Marshal](https://github.com/utahiosmac/Marshal) bindings for
   [Moya](https://github.com/Moya/Moya) for easier JSON serialization.
-  Includes [RxSwift](https://github.com/ReactiveX/RxSwift/) and 
+  Includes [RxSwift](https://github.com/ReactiveX/RxSwift/) and
   [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa/) bindings as well.
   Instructions on how to use it are in
   [the README](https://github.com/JARMourato/Moya-Marshal).
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Core" do |ss|
     ss.source_files  = "Sources/*.swift"
-    ss.dependency "Moya", "~> 8.0.0"
+    ss.dependency "Moya", "~> 9.0.0"
     ss.dependency "Marshal", "~> 1.2.0"
     ss.framework  = "Foundation"
   end

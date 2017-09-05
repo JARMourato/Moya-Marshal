@@ -4,9 +4,7 @@ import Moya_Marshal
 import ReactiveSwift
 import Marshal
 
-let regularProvider = MoyaProvider<ExampleAPI>(stubClosure: MoyaProvider.immediatelyStub)
-let rcProvider = ReactiveSwiftMoyaProvider<ExampleAPI>(stubClosure: MoyaProvider.immediatelyStub)
-let rxProvider = RxMoyaProvider<ExampleAPI>(stubClosure: MoyaProvider.immediatelyStub)
+let provider = MoyaProvider<ExampleAPI>(stubClosure: MoyaProvider.immediatelyStub)
 
 enum ExampleAPI {
     case object
@@ -50,14 +48,11 @@ extension ExampleAPI: TargetType {
         return data
     }
 
-    var multipartBody: [MultipartFormData]? {
+    var task: Task {
+        return Task.requestPlain
+    }
+
+    var headers: [String : String]? {
         return nil
     }
-    var task: Task {
-        return Task.request
-    }
-    var parameterEncoding: ParameterEncoding {
-        return URLEncoding.default
-    }
-    
 }

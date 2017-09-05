@@ -28,13 +28,13 @@ import Moya
 import Marshal
 
 /// Extension for processing Responses into Mappable objects through Marshal
-public extension ObservableType where E == Response {
     
+public extension Single where Element == Response {
     /// Maps data received from the signal into an object
     /// which implements the Unmarshaling protocol and returns the result back
     /// If the conversion fails, the signal errors.
     public func map<T: Unmarshaling>(to type: T.Type) -> Observable<T> {
-        return flatMap { response -> Observable<T> in
+        return asObservable().flatMap { response -> Observable<T> in
             return Observable.just(try response.map(to: T.self))
         }
     }
@@ -43,7 +43,7 @@ public extension ObservableType where E == Response {
     /// which implement the Unmarshaling protocol and returns the result back
     /// If the conversion fails, the signal errors.
     public func mapArray<T: Unmarshaling>(of type: T.Type) -> Observable<[T]> {
-        return flatMap { response -> Observable<[T]> in
+        return asObservable().flatMap { response -> Observable<[T]> in
             return Observable.just(try response.mapArray(of: T.self))
         }
 
