@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         usingRxSwift()
     }
     func onlyMoya(){
-        regularProvider.request(ExampleAPI.object) { (result) -> () in
+        provider.request(ExampleAPI.object) { (result) -> () in
             switch result {
             case let .success(response):
                 do {
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     func usingReactiveCocoa(){
-        rcProvider
+        provider.reactive
             .request(ExampleAPI.object)
             .map(to: User.self)
             .on(failed: { (error) -> () in
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     }
     
     func usingRxSwift(){
-        rxProvider
+        provider.rx
             .request(ExampleAPI.array)
             .mapArray(of: User.self)
             .subscribe(onNext: { (response) -> Void in
