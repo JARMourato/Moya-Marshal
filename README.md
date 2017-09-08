@@ -1,5 +1,4 @@
 # Moya-Marshal
-============
 [![CocoaPods](https://img.shields.io/cocoapods/v/Moya-Marshal.svg)](https://github.com/JARMourato/Moya-Marshal)
 ![Swift 3.0.x](https://img.shields.io/badge/Swift-3.0.x-orange.svg)
 
