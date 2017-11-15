@@ -6,7 +6,7 @@ platform :ios, '9.0'
 def shared_pods
     pod 'Moya-Marshal', :path => '../'
     pod 'Moya-Marshal/RxSwift', :path => '../'
-    pod 'Moya-Marshal/ReactiveCocoa', :path => '../'
+    pod 'Moya-Marshal/ReactiveSwift', :path => '../'
 end
 
 target 'Example' do

@@ -25,10 +25,10 @@ The subspec if you want to use the bindings over RxSwift.
 pod 'Moya-Marshal/RxSwift'
 ```
 
-And the subspec if you want to use the bindings over ReactiveCocoa.
+And the subspec if you want to use the bindings over ReactiveSwift.
 
 ```ruby
-pod 'Moya-Marshal/ReactiveCocoa'
+pod 'Moya-Marshal/ReactiveSwift'
 ```
 
 # Usage
@@ -81,7 +81,7 @@ provider
     }.addDisposableTo(disposeBag)
 ```
 
-### ReactiveCocoa
+### ReactiveSwift
 
 ```swift
 provider

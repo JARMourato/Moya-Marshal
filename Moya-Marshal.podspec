@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Moya-Marshal'
-  s.version          = '1.2.0'
+  s.version          = '1.3.0'
   s.summary          = 'Marshal mappings for Moya network requests'
   s.description  = <<-EOS
   [Marshal](https://github.com/utahiosmac/Marshal) bindings for
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Core" do |ss|
     ss.source_files  = "Sources/*.swift"
-    ss.dependency "Moya", "~> 9.0.0"
+    ss.dependency "Moya", "~> 10.0.0"
     ss.dependency "Marshal", "~> 1.2.0"
     ss.framework  = "Foundation"
   end
@@ -35,12 +35,14 @@ Pod::Spec.new do |s|
     ss.source_files = "Sources/RxSwift/*.swift"
     ss.dependency "Moya/RxSwift"
     ss.dependency "Moya-Marshal/Core"
+    ss.dependency "RxSwift", '~> 4.0.0'
   end
 
-  s.subspec "ReactiveCocoa" do |ss|
-    ss.source_files = "Sources/ReactiveCocoa/*.swift"
-    ss.dependency "Moya/ReactiveCocoa"
-    ss.dependency "Moya-Marshal/Core"
-  end
+  s.subspec "ReactiveSwift" do |ss|
+    ss.source_files = "Sources/ReactiveSwift/*.swift"
+     ss.dependency "Moya/ReactiveSwift"
+     ss.dependency "Moya-Marshal/Core"
+     ss.dependency "ReactiveSwift"
+   end
 
 end
