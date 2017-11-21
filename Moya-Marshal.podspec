@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/JARMourato/Moya-Marshal.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/_JARMourato'
 
-  s.osx.deployment_target    = '10.10'
+  s.osx.deployment_target = '10.10'
   s.ios.deployment_target = '8.0'
   s.tvos.deployment_target = '9.0'
   s.watchos.deployment_target = '2.0'
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Core" do |ss|
     ss.source_files  = "Sources/*.swift"
-    ss.dependency "Moya", "~> 9.0.0"
+    ss.dependency "Moya", "~> 10.0.0"
     ss.dependency "Marshal", "~> 1.2.0"
     ss.framework  = "Foundation"
   end
@@ -39,7 +39,7 @@ Pod::Spec.new do |s|
 
   s.subspec "ReactiveCocoa" do |ss|
     ss.source_files = "Sources/ReactiveCocoa/*.swift"
-    ss.dependency "Moya/ReactiveCocoa"
+    ss.dependency "Moya/ReactiveSwift"
     ss.dependency "Moya-Marshal/Core"
   end
 

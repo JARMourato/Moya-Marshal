@@ -46,12 +46,12 @@ class ViewController: UIViewController {
         provider.rx
             .request(ExampleAPI.array)
             .mapArray(of: User.self)
-            .subscribe(onNext: { (response) -> Void in
+            .subscribe(onSuccess: { (response) -> Void in
                 print("Rx Swift \(response)")
             }, onError: { (error) -> Void in
                 print(error)
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 }
 
