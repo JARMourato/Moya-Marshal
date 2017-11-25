@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Moya-Marshal'
-  s.version          = '1.3.0'
+  s.version          = '1.3.1'
   s.summary          = 'Marshal mappings for Moya network requests'
   s.description  = <<-EOS
   [Marshal](https://github.com/utahiosmac/Marshal) bindings for
