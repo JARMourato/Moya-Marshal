@@ -11,7 +11,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     
         onlyMoya()
-        usingReactiveCocoa()
+        usingReactiveSwift()
         usingRxSwift()
     }
     func onlyMoya(){
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func usingReactiveCocoa(){
+    func usingReactiveSwift(){
         provider.reactive
             .request(ExampleAPI.object)
             .map(to: User.self)
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
             }, onError: { (error) -> Void in
                 print(error)
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 }
 
